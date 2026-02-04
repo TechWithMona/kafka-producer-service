@@ -1,14 +1,15 @@
 package com.techwithmona.kafkaproducerservice.publisher;
 
 import com.techwithmona.kafkaproducerservice.dto.OrderEvent;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
 public class OrderEventPublisher {
 
-
-    private static final String topic = "order-event";
+    @Value("${app.kafka.topic.order-events}")
+    private String topic;
 
     private final KafkaTemplate<String, OrderEvent> kafkaTemplate;
 
@@ -19,6 +20,5 @@ public class OrderEventPublisher {
     public void publish(OrderEvent orderEvent) {
         kafkaTemplate.send(topic, orderEvent.getOrderId(), orderEvent);
     }
-
 
 }

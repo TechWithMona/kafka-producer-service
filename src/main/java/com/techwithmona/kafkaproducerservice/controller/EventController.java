@@ -2,6 +2,7 @@ package com.techwithmona.kafkaproducerservice.controller;
 
 
 import com.techwithmona.kafkaproducerservice.dto.OrderEvent;
+import com.techwithmona.kafkaproducerservice.dto.OrderEventType;
 import com.techwithmona.kafkaproducerservice.publisher.OrderEventPublisher;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,12 +20,25 @@ public class EventController {
         this.orderEventPublisher = orderEventPublisher;
     }
 
-    @PostMapping
-    public String event(@Valid @RequestBody OrderEvent orderEvent) {
+    @PostMapping("/created")
+    public String created(@Valid @RequestBody OrderEvent orderEvent) {
+        orderEvent.setType(OrderEventType.CREATED);
         orderEventPublisher.publish(orderEvent);
-        return "published";
+        return "CREATED published";
     }
 
+    @PostMapping("/confirmed")
+    public String confirmed(@Valid @RequestBody OrderEvent orderEvent) {
+        orderEvent.setType(OrderEventType.CONFIRMED);
+        orderEventPublisher.publish(orderEvent);
+        return "CONFIRMED published";
+    }
 
+    @PostMapping("/shipped")
+    public String shipped(@Valid @RequestBody OrderEvent orderEvent) {
+        orderEvent.setType(OrderEventType.SHIPPED);
+        orderEventPublisher.publish(orderEvent);
+        return "SHIPPED published";
+    }
 
 }
