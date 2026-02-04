@@ -3,45 +3,7 @@ kafka-producer-service
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Kafka Producer Service – Order Lifecycle</title>
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      color: #1f2937;
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
-    h1, h2, h3 { color: #111827; }
-    code {
-      background: #f3f4f6;
-      padding: 3px 6px;
-      border-radius: 4px;
-      font-size: 0.95em;
-    }
-    pre {
-      background: #111827;
-      color: #f9fafb;
-      padding: 15px;
-      border-radius: 6px;
-      overflow-x: auto;
-    }
-    ul { margin-left: 20px; }
-    .box {
-      background: #f9fafb;
-      border-left: 4px solid #16a34a;
-      padding: 12px 16px;
-      margin: 16px 0;
-    }
-    .highlight {
-      background: #fff7ed;
-      border-left: 4px solid #f97316;
-      padding: 12px 16px;
-      margin: 16px 0;
-    }
-  </style>
+  <meta charset="UTF-8" />  
 </head>
 
 <body>
